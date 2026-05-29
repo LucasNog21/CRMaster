@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
-public class DatabaseConnectionTest {
+public class DatabaseConnectionTests {
 
     @Autowired
     private DataSource dataSource;
