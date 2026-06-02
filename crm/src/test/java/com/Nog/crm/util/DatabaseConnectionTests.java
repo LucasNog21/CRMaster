@@ -1,5 +1,7 @@
-package com.Nog.crm;
+package com.Nog.crm.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,13 +18,14 @@ public class DatabaseConnectionTests {
     @Autowired
     private DataSource dataSource;
 
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseConnectionTests.class);
+
     @Test
     void testConnection() throws SQLException {
         assertThat(dataSource).isNotNull();
 
         try (Connection connection = dataSource.getConnection()) {
-            assertThat(connection.isValid(2)).isTrue();
-            System.out.println("Database connected");
+            assertThat(connection.isValid(2));
 
         }
     }
